@@ -1,0 +1,100 @@
+﻿@model AlloeHRMSystem.UI.ViewModels.AddAttachmentViewModel
+
+@{
+    ViewData["Title"] = "AddAttachment";
+}
+
+<h1>AddAttachment</h1>
+
+<h4>EmployeeAttachment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddAttachment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FileName" class="control-label"></label>
+                <input asp-for="FileName" class="form-control" />
+                <span asp-validation-for="FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <select asp-for="EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileId" class="control-label"></label>
+                <input asp-for="FileId" class="form-control" />
+                <span asp-validation-for="FileId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Type" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <select asp-for="Type" class="custom-select mr-sm-2"
+                            asp-items="@Html.GetEnumSelectList<FileType>()">
+                        <option value="">Please select</option>
+
+                    </select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileSize" class="control-label"></label>
+                <input asp-for="FileSize" class="form-control" />
+                <span asp-validation-for="FileSize" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="File" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <div class="custom-file">
+                        <input multiple asp-for="File" class="form-control custom-file-input">
+                        <label class="custom-file-label">Choose File...</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+            <div class="form-group">
+                <p>
+                    <a asp-action="AddAttachment">Add More</a>
+                </p>
+            </div>
+
+            @section Scripts {
+                <script>
+                    $(document).ready(function () {
+                        $('.custom-file-input').on("change", function () {
+                            var fileName = $(this).val().split("\\").pop();
+                            $(this).next('.custom-file-label').html(fileName);
+                        });
+                    });
+
+                </script>
+            }
+            <div>
+                @if (TempData["successAlert"] != null)
+                {
+                    <div class="alert alert-success">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        <p>@TempData["successAlert"]</p>
+                    </div>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

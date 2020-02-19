@@ -1,0 +1,156 @@
+﻿@model IEnumerable<ManagerEmployeeIndexViewModel>
+
+@{
+    ViewData["Title"] = "GetAllEmployee";
+}
+
+<h1>GetAllEmployee</h1>
+
+<form asp-controller="Manager" asp-action="GetAllEmplooyee" method="get">
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<br />
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Rank)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.MaritalStatus)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.EmployeeId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Rank)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.MaritalStatus)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                <a asp-action="MaEditEmployee" asp-route-id="@item.EmployeeId">Edit</a>
+                @*<a asp-action="EmployeeDetail" asp-route-id="@item.EmployeeId">Details</a>
+            <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>*@
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

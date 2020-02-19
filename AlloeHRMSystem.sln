@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlloeHRMSystem.Domain", "AlloeHRMSystem.Domain\AlloeHRMSystem.Domain.csproj", "{23959307-5038-45C9-91DA-93008AA01860}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlloeHRMSystem.Domain", "AlloeHRMSystem.Domain\AlloeHRMSystem.Domain.csproj", "{23959307-5038-45C9-91DA-93008AA01860}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{9D65A5A8-B261-4FEC-B57C-FEC48C1CD58A}"
 EndProject
@@ -17,17 +17,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{23B3BEBB-9A52-4C03-BA57-97729D773D87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlloeHRMSystem.WebUI", "AlloeHRMSystem.WebUI\AlloeHRMSystem.WebUI.csproj", "{C0E5DF08-C0F7-47AB-A012-1525F6B92C93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlloeHRMSystem.Persistence", "AlloeHRMSystem.Persistence\AlloeHRMSystem.Persistence.csproj", "{6586E637-D058-4D98-A42E-208B8DC10A4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlloeHRMSystem.Infrastructure", "AlloeHRMSystem.Infrastructure\AlloeHRMSystem.Infrastructure.csproj", "{E7750E2C-A45D-4E10-838C-80E7760FDAD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlloeHRMSystem.ApplicationServices", "AlloeHRMSystem.ApplicationServices\AlloeHRMSystem.ApplicationServices.csproj", "{A7F86EF6-CE78-4F46-B4A9-C337751E378E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlloeHRMSystem.Persistence", "AlloeHRMSystem.Persistence\AlloeHRMSystem.Persistence.csproj", "{6586E637-D058-4D98-A42E-208B8DC10A4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlloeHRMSystem.ApplicationServices.Tests", "AlloeHRMSystem.ApplicationServices.Tests\AlloeHRMSystem.ApplicationServices.Tests.csproj", "{1105C61F-DE61-4AFE-AB8B-6B32C951ED85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlloeHRMSystem.ApplicationServices", "AlloeHRMSystem.ApplicationServices\AlloeHRMSystem.ApplicationServices.csproj", "{A7F86EF6-CE78-4F46-B4A9-C337751E378E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlloeHRMSystem.Domain.Tests", "AlloeHRMSystem.Domain.Tests\AlloeHRMSystem.Domain.Tests.csproj", "{3AABB433-9E4A-4BD9-A10E-7D4CE8C29A9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlloeHRMSystem.ApplicationServices.Tests", "AlloeHRMSystem.ApplicationServices.Tests\AlloeHRMSystem.ApplicationServices.Tests.csproj", "{1105C61F-DE61-4AFE-AB8B-6B32C951ED85}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlloeHRMSystem.Domain.Tests", "AlloeHRMSystem.Domain.Tests\AlloeHRMSystem.Domain.Tests.csproj", "{3AABB433-9E4A-4BD9-A10E-7D4CE8C29A9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlloeHRMSystem.UI", "AlloeHRMSystem.UI\AlloeHRMSystem.UI.csproj", "{C77EE411-3E64-4C15-8559-42BB03D3E6FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,14 +37,6 @@ Global
 		{23959307-5038-45C9-91DA-93008AA01860}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23959307-5038-45C9-91DA-93008AA01860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23959307-5038-45C9-91DA-93008AA01860}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C0E5DF08-C0F7-47AB-A012-1525F6B92C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C0E5DF08-C0F7-47AB-A012-1525F6B92C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C0E5DF08-C0F7-47AB-A012-1525F6B92C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C0E5DF08-C0F7-47AB-A012-1525F6B92C93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E7750E2C-A45D-4E10-838C-80E7760FDAD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7750E2C-A45D-4E10-838C-80E7760FDAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7750E2C-A45D-4E10-838C-80E7760FDAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7750E2C-A45D-4E10-838C-80E7760FDAD0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6586E637-D058-4D98-A42E-208B8DC10A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6586E637-D058-4D98-A42E-208B8DC10A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6586E637-D058-4D98-A42E-208B8DC10A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -63,6 +53,10 @@ Global
 		{3AABB433-9E4A-4BD9-A10E-7D4CE8C29A9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AABB433-9E4A-4BD9-A10E-7D4CE8C29A9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AABB433-9E4A-4BD9-A10E-7D4CE8C29A9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C77EE411-3E64-4C15-8559-42BB03D3E6FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C77EE411-3E64-4C15-8559-42BB03D3E6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C77EE411-3E64-4C15-8559-42BB03D3E6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C77EE411-3E64-4C15-8559-42BB03D3E6FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,12 +66,11 @@ Global
 		{A128E76B-505C-4F85-A8FB-094BB8D90E4C} = {FBD51793-6CD0-47DA-AD70-943B575BF4B1}
 		{88E56EC7-17E0-40E9-A07B-7ABD5F2438CC} = {FBD51793-6CD0-47DA-AD70-943B575BF4B1}
 		{23B3BEBB-9A52-4C03-BA57-97729D773D87} = {FBD51793-6CD0-47DA-AD70-943B575BF4B1}
-		{C0E5DF08-C0F7-47AB-A012-1525F6B92C93} = {23B3BEBB-9A52-4C03-BA57-97729D773D87}
-		{E7750E2C-A45D-4E10-838C-80E7760FDAD0} = {88E56EC7-17E0-40E9-A07B-7ABD5F2438CC}
 		{6586E637-D058-4D98-A42E-208B8DC10A4E} = {88E56EC7-17E0-40E9-A07B-7ABD5F2438CC}
 		{A7F86EF6-CE78-4F46-B4A9-C337751E378E} = {A128E76B-505C-4F85-A8FB-094BB8D90E4C}
 		{1105C61F-DE61-4AFE-AB8B-6B32C951ED85} = {996EF84C-F300-4623-BA82-75DD8560923D}
 		{3AABB433-9E4A-4BD9-A10E-7D4CE8C29A9E} = {996EF84C-F300-4623-BA82-75DD8560923D}
+		{C77EE411-3E64-4C15-8559-42BB03D3E6FB} = {23B3BEBB-9A52-4C03-BA57-97729D773D87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {44DADBF5-DDA1-4ABE-8F79-77DAC5243662}
