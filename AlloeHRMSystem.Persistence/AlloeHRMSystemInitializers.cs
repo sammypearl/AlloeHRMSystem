@@ -39,22 +39,22 @@ namespace AlloeHRMSystem.Persistence
              )
         {
          
-                context.Database.EnsureCreated();
-
-                if ( !context.AppUsers.Any())
-                {
-                   SeedAppUsers(userManager); // Database has been seeded
-                  
-                }
+              context.Database.EnsureCreated();
 
                 if (!context.AppRoles.Any())
                 {
-                    SeedAppRoles(roleManager); // Database has been seeded
+                    SeedAppRoles(roleManager).GetAwaiter().GetResult(); // Database has been seeded
                 }
 
-                if (!context.Employees.Any())
+            if (!context.AppUsers.Any())
+            {
+                SeedAppUsers(userManager).GetAwaiter().GetResult(); // Database has been seeded
+
+            }
+
+            if (!context.Employees.Any())
                 {
-                    SeedEmployees(context); // Database has been seeded
+                SeedEmployees(context); // Database has been seeded
                 }
 
                 if (!context.EmployeeAttachments.Any())
@@ -107,7 +107,7 @@ namespace AlloeHRMSystem.Persistence
 
         
 
-        public static async void SeedAppUsers(UserManager<AppUser> userManager)
+        public static async Task SeedAppUsers(UserManager<AppUser> userManager)
         {
             var MyEmailAddress = "sammy1@samuel-ak.tech";
             var MyPassword = "Sammyk_@001";
@@ -147,7 +147,7 @@ namespace AlloeHRMSystem.Persistence
 
             var MyEmailAddress2 = "sammy2@samuel-ak.tech";
             var MyPassword2 = "Sammyk_@002";
-            if (await userManager.FindByNameAsync(MyEmailAddress) == null)
+            if (await userManager.FindByNameAsync(MyEmailAddress2) == null)
             {
 
                 var appUsers = new AppUser
@@ -184,7 +184,7 @@ namespace AlloeHRMSystem.Persistence
 
             var MyEmailAddress3 = "sammy3@samuel-ak.tech";
             var MyPassword3 = "Sammyk_@003";
-            if (await userManager.FindByNameAsync(MyEmailAddress) == null)
+            if (await userManager.FindByNameAsync(MyEmailAddress3) == null)
             {
                 var appUsers = new AppUser
                 {
@@ -218,9 +218,9 @@ namespace AlloeHRMSystem.Persistence
             }
 
         }
-        public static void SeedAppRoles(RoleManager<AppRole> roleManager)
+        public static async Task SeedAppRoles(RoleManager<AppRole> roleManager)
         {
-            if (!roleManager.RoleExistsAsync("Admin").Result)
+            if ( !roleManager.RoleExistsAsync("Admin").Result)
             {
                 AppRole role = new AppRole();
                 role.Name = "Admin";
@@ -229,10 +229,10 @@ namespace AlloeHRMSystem.Persistence
                 role.CreateDate = DateTime.Parse("May 11 2014");
                 role.ModifiedBy = "Samuel";
                 role.ModifiedDate = DateTime.Parse("May 11 2014");
-                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
+                IdentityResult roleResult = await roleManager.CreateAsync(role);
             }
 
-            if (!roleManager.RoleExistsAsync("HR").Result)
+            if ( !roleManager.RoleExistsAsync("HR").Result)
             {
                 AppRole role = new AppRole();
                 role.Name = "HR";
@@ -241,7 +241,7 @@ namespace AlloeHRMSystem.Persistence
                 role.CreateDate = DateTime.Parse("Feb 24 2015");
                 role.ModifiedBy = "Gary";
                 role.ModifiedDate = DateTime.Parse("May 17 2017");
-                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
+                IdentityResult roleResult = await roleManager.CreateAsync(role);
             }
 
             if (!roleManager.RoleExistsAsync("Manager").Result)
@@ -253,7 +253,7 @@ namespace AlloeHRMSystem.Persistence
                 role.CreateDate = DateTime.Parse("May 21 2012");
                 role.ModifiedBy = "Trump";
                 role.ModifiedDate = DateTime.Parse("Feb 20 2013");
-                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
+                IdentityResult roleResult = await roleManager.CreateAsync(role);
             }
 
             if (!roleManager.RoleExistsAsync("Employee").Result)
@@ -265,7 +265,7 @@ namespace AlloeHRMSystem.Persistence
                 role.CreateDate = DateTime.Parse("Oct 23 2014");
                 role.ModifiedBy = "Bill";
                 role.ModifiedDate = DateTime.Parse("May 12 2015");
-                IdentityResult roleResult = roleManager.CreateAsync(role).Result;
+                IdentityResult roleResult = await roleManager.CreateAsync(role);
             }
         }
         public void SeedEmployees(AlloeContext context)
@@ -397,7 +397,7 @@ namespace AlloeHRMSystem.Persistence
                 }
                  // context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Employee] ON");
 
-                context.SaveChanges();
+                context.SaveChangesAsync();
 
                // context.Database.ExecuteSqlRaw("SET IDENTITY_INSERT [dbo].[Employee] OFF");
                // transaction.Commit();
@@ -483,7 +483,7 @@ namespace AlloeHRMSystem.Persistence
                 context.EmployeeAttachments.Add(employAttac);
             }
           //  context.EmployeeAttachments.AddRange(employatt);
-            context.SaveChanges();
+           context.SaveChangesAsync();
 
         }
 
@@ -540,7 +540,7 @@ namespace AlloeHRMSystem.Persistence
                 context.EmployeeCertificates.Add(employCert);
             }
            // context.EmployeeCertificates.AddRange(employcert);
-            context.SaveChanges();
+            context.SaveChangesAsync();
         }
 
 
@@ -611,7 +611,7 @@ namespace AlloeHRMSystem.Persistence
                 context.EmployeeEducations.Add(employEdu);
             }
            // context.EmployeeEducations.AddRange(employed);
-            context.SaveChanges();
+            context.SaveChangesAsync();
         }
 
         public void SeedEmployEmergencyCall(AlloeContext context)
@@ -657,7 +657,7 @@ namespace AlloeHRMSystem.Persistence
                 context.EmployeeEmergencyCalls.Add(employEmerg);
             }
            // context.EmployeeEmergencyCalls.AddRange(employemer);
-            context.SaveChanges();
+           context.SaveChangesAsync();
         }
 
         public void SeedEmploLanguages(AlloeContext context)
@@ -710,7 +710,7 @@ namespace AlloeHRMSystem.Persistence
                 context.EmployeeLanguages.Add(employLang);
             }
            // context.EmployeeLanguages.AddRange(employlan);
-            context.SaveChanges();
+           context.SaveChangesAsync();
         }
 
         public void SeedEmployProjects(AlloeContext context)
@@ -766,7 +766,7 @@ namespace AlloeHRMSystem.Persistence
                 context.EmployeeProjects.Add(emploPro);
             }
            // context.EmployeeProjects.AddRange(employpro);
-            context.SaveChanges();
+             context.SaveChangesAsync();
         }
 
         public void SeedEmployQuits(AlloeContext context)
@@ -867,7 +867,7 @@ namespace AlloeHRMSystem.Persistence
                 context.EmployeeQuits.Add(employQu);
             }
            // context.EmployeeQuits.AddRange(employqu);
-            context.SaveChanges();
+             context.SaveChangesAsync();
         }
 
         public void SeedEmployTechSkills(AlloeContext context)
@@ -917,7 +917,7 @@ namespace AlloeHRMSystem.Persistence
                 context.EmployeeTechnicalSkills.Add(employSki);
             }
            // context.EmployeeTechnicalSkills.AddRange(employtec);
-            context.SaveChanges();
+             context.SaveChangesAsync();
         }
 
         public void SeedEmployTrainings(AlloeContext context)
@@ -973,7 +973,7 @@ namespace AlloeHRMSystem.Persistence
                 context.EmployeeTrainings.Add(employtra);
             }
            // context.EmployeeTrainings.AddRange(employtrai);
-            context.SaveChanges();
+           context.SaveChangesAsync();
         }
 
 

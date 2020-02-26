@@ -50,7 +50,7 @@ namespace AlloeHRMSystem.Persistence.Infrastructure
             var optionsBuilder = new DbContextOptionsBuilder<TContext>();
 
             optionsBuilder.UseSqlServer(connectionString);
-        //    optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             return CreateNewInstance(optionsBuilder.Options);
         }
     }

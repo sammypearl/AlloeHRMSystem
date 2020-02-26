@@ -40,9 +40,9 @@ namespace AlloeHRMSystem.UI
                 try
                 {
 
-                    var context = services.GetService<AlloeContext>();
-                    var userManager = services.GetService<UserManager<AppUser>>();
-                    var userRole = services.GetService<RoleManager<AppRole>>();
+                    var context = services.GetRequiredService<AlloeContext>();
+                    var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                    var userRole = services.GetRequiredService<RoleManager<AppRole>>();
 
                     // var concreteContext = (AlloeContext);
                     //  context.Database.Migrate();
