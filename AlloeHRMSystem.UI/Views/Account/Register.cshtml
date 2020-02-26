@@ -1,0 +1,173 @@
+﻿
+@model RegisterViewModel
+
+@{
+    ViewBag.Title = "User Registration";
+}
+
+<link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+<h2>User Registration</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserId"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger">
+
+                </span>
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger">
+
+                </span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger">
+
+                </span>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="FirstName"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CreatedBy"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="CreateDate"></label>
+                <input asp-for="CreateDate" class="form-control" />
+                <span asp-validation-for="CreateDate" class="text-danger">
+
+                </span>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="ModifyBy"></label>
+                        <input asp-for="ModifyBy" class="form-control" />
+                        <span asp-validation-for="ModifyBy" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="MobileNo"></label>
+                <input asp-for="MobileNo" class="form-control" />
+                <span asp-validation-for="MobileNo" class="text-danger">
+
+                </span>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Language"></label>
+                        <input asp-for="Language" class="form-control" />
+                        <span asp-validation-for="Language" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company"></label>
+                <input asp-for="Company" class="form-control" />
+                <span asp-validation-for="Company" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Department"></label>
+                <div class="col-sm-10">
+                    <select asp-for="Department" class="custom-select mr-sm-2"
+                            asp-items="@Html.GetEnumSelectList<Dept>()">
+                        <option value="">Please select</option>
+
+                    </select>
+                    <span asp-validation-for="Department" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="JobTitle"></label>
+                        <input asp-for="JobTitle" class="form-control" />
+                        <span asp-validation-for="JobTitle" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomePhone"></label>
+                <input asp-for="HomePhone" class="form-control" />
+                <span asp-validation-for="HomePhone" class="text-danger"></span>
+
+            </div>
+           
+            <div class="form-group">
+                <label asp-for="LastPasswordUpdate"></label>
+                <input asp-for="LastPasswordUpdate" class="form-control" />
+                <span asp-validation-for="LastPasswordUpdate" class="text-danger"></span>
+
+            </div>
+           
+            <div class="form-group">
+                <div class="checkbox">
+                    <label asp-for="PasswordExpirationEnable">
+                        <input asp-for="PasswordExpirationEnable" />
+                        @Html.DisplayNameFor(m => m.PasswordExpirationEnable)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label asp-for="CanMakeCall">
+                        <input asp-for="CanMakeCall" />
+                        @Html.DisplayNameFor(m => m.CanMakeCall)
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</div>

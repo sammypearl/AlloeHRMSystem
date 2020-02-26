@@ -1,0 +1,207 @@
+﻿@*@model AlloeHRMSystem.Domain.Entities.Employee*@
+
+@model EmployeeEditViewModel
+
+@{
+    ViewData["Title"] = "EditEmployee";
+     var photoPath = "~/Images/" + (Model.ExistingPhotoPath ?? "noimages.jpg");
+}
+
+<h1>EditEmployee</h1>
+
+<h4>Employee</h4>
+<hr />
+
+<div class="row">
+        <div class="col-md-4">
+            <form asp-action="HrEditEmployee">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="EmployeeId" />
+                @*<input type="hidden" asp-for="UserId" />*@
+                <input hidden asp-for="ExistingPhotoPath" />
+                <div class="form-group">
+                    <label asp-for="Firstname" class="control-label"></label>
+                    <input asp-for="Firstname" class="form-control" />
+                    <span asp-validation-for="Firstname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Lastname" class="control-label"></label>
+                    <input asp-for="Lastname" class="form-control" />
+                    <span asp-validation-for="Lastname" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HomeAddress" class="control-label"></label>
+                    <input asp-for="HomeAddress" class="form-control" />
+                    <span asp-validation-for="HomeAddress" class="text-danger"></span>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="Department" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <select asp-for="Department" class="custom-select mr-sm-2"
+                                asp-items="@Html.GetEnumSelectList<Dept>()">
+                            <option value="">Please select</option>
+
+                        </select>
+                        <span asp-validation-for="Department" class="text-danger"></span>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Country" class="control-label"></label>
+                    <input asp-for="Country" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="JobTitle" class="control-label"></label>
+                    <input asp-for="JobTitle" class="form-control" />
+                    <span asp-validation-for="JobTitle" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Rank" class="control-label"></label>
+                    <input asp-for="Rank" class="form-control" />
+                    <span asp-validation-for="Rank" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BloodType" class="control-label"></label>
+                    <input asp-for="BloodType" class="form-control" />
+                    <span asp-validation-for="BloodType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaritalStatus" class="control-label"></label>
+                    <input asp-for="MaritalStatus" class="form-control" />
+                    <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="DateOfBirth" class="control-label"></label>
+                    <input asp-for="DateOfBirth" class="form-control" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Gender" class="control-label"></label>
+                    <input asp-for="Gender" class="form-control" />
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Nationality" class="control-label"></label>
+                    <input asp-for="Nationality" class="form-control" />
+                    <span asp-validation-for="Nationality" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HousePhone" class="control-label"></label>
+                    <input asp-for="HousePhone" class="form-control" />
+                    <span asp-validation-for="HousePhone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ContractType" class="control-label"></label>
+                    <input asp-for="ContractType" class="form-control" />
+                    <span asp-validation-for="ContractType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="JobLocation" class="control-label"></label>
+                    <input asp-for="JobLocation" class="form-control" />
+                    <span asp-validation-for="JobLocation" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsConfirmed" />
+                        @Html.DisplayNameFor(model => model.IsConfirmed)
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CreatedBy" class="control-label"></label>
+                    <input asp-for="CreatedBy" class="form-control" />
+                    <span asp-validation-for="CreatedBy" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CreateDate" class="control-label"></label>
+                    <input asp-for="CreateDate" class="form-control" />
+                    <span asp-validation-for="CreateDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastModifiedBy" class="control-label"></label>
+                    <input asp-for="LastModifiedBy" class="form-control" />
+                    <span asp-validation-for="LastModifiedBy" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartDate" class="control-label"></label>
+                    <input asp-for="StartDate" class="form-control" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="QuitDate" class="control-label"></label>
+                    <input asp-for="QuitDate" class="form-control" />
+                    <span asp-validation-for="QuitDate" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsLeavedJob" />
+                        @Html.DisplayNameFor(model => model.IsLeavedJob)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LeaveJobDate" class="control-label"></label>
+                    <input asp-for="LeaveJobDate" class="form-control" />
+                    <span asp-validation-for="LeaveJobDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LeaveJobReason" class="control-label"></label>
+                    <input asp-for="LeaveJobReason" class="form-control" />
+                    <span asp-validation-for="LeaveJobReason" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LegalDayOff" class="control-label"></label>
+                    <input asp-for="LegalDayOff" class="form-control" />
+                    <span asp-validation-for="LegalDayOff" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Photo" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <div class="custom-file">
+                            <input asp-for="Photo" class="form-control custom-file-input">
+                            <label class="custom-file-label">Click here to change Photo</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group row col-sm-4 offset-4">
+                    <img src="@photoPath" class="imageThumbnail" asp-append-version="true" />
+                </div>
+                @*<div class="form-group row col-sm-4 offset-4">
+            <img src="@photoPath" class="imageThumbnail" asp-append-version="true" />
+        </div>*@
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+</div> 
+
+<div>
+    <a asp-action="HrGetAllEmployee">Back to List</a>
+</div>
+

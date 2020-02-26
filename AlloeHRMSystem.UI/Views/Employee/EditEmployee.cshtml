@@ -1,0 +1,136 @@
+﻿@model AlloeHRMSystem.UI.ViewModels.EmployeeViewModel.EmployeeEditViewModel
+
+
+@{
+    ViewData["Title"] = "UpdateEmployee";
+   // var photoPath = "~/Images/" + (Model.ExistingPhotoPath ?? "noimage.jpg");
+}
+
+<h1>UpdateEmployee</h1>
+
+<form enctype="multipart/form-data" asp-controller="Employee" asp-action="EditEmployee" method="post" class="mt-4">
+    <div class="form-group row">
+        <input hidden asp-for="EmployeeId" />
+        <input hidden asp-for="ExistingPhotoPath" />
+        <label asp-for="Firstname" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-11">
+            <input asp-for="Firstname" class="form-control" placeholder="Name" />
+            <span asp-validation-for="Firstname" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Lastname" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-11">
+            <input asp-for="Lastname" class="form-control" placeholder="Surname" />
+            <span asp-validation-for="Lastname" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone" class="control-label"></label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HomeAddress" class="control-label"></label>
+        <input asp-for="HomeAddress" class="form-control" />
+        <span asp-validation-for="HomeAddress" class="text-danger"></span>
+    </div>
+
+   
+    <div class="form-group">
+        <label asp-for="City" class="control-label"></label>
+        <input asp-for="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+   
+   
+    <div class="form-group">
+        <label asp-for="Country" class="control-label"></label>
+        <input asp-for="Country" class="form-control" />
+        <span asp-validation-for="Country" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BloodType" class="control-label"></label>
+        <input asp-for="BloodType" class="form-control" />
+        <span asp-validation-for="BloodType" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaritalStatus" class="control-label"></label>
+        <input asp-for="MaritalStatus" class="form-control" />
+        <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="DateOfBirth" class="control-label"></label>
+        <input asp-for="DateOfBirth" class="form-control" />
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Gender" class="control-label"></label>
+        <input asp-for="Gender" class="form-control" />
+        <span asp-validation-for="Gender" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Nationality" class="control-label"></label>
+        <input asp-for="Nationality" class="form-control" />
+        <span asp-validation-for="Nationality" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HousePhone" class="control-label"></label>
+        <input asp-for="HousePhone" class="form-control" />
+        <span asp-validation-for="HousePhone" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="JobLocation" class="control-label"></label>
+        <input asp-for="JobLocation" class="form-control" />
+        <span asp-validation-for="JobLocation" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="LegalDayOff" class="control-label"></label>
+        <input asp-for="LegalDayOff" class="form-control" />
+        <span asp-validation-for="LegalDayOff" class="text-danger"></span>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Photo" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-11">
+            <div class="custom-file">
+                <input multiple asp-for="Photo" class="form-control custom-file-input" />
+                <label class="custom-file-label">Choose File...</label>
+            </div>
+        </div>
+    </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group row">
+        <div class="col-sm-11">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a>Cancel</a>
+        </div>
+    </div>
+
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                $('.custom-file-input').on("change", function () {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).next('.custom-file-label').html(fileName);
+                });
+            });
+
+        </script>
+    }
+</form>

@@ -1,0 +1,81 @@
+﻿@model AlloeHRMSystem.UI.ViewModels.EmployeeViewModel.AddLanguageViewModel
+
+@{
+    ViewData["Title"] = "AddLanguage";
+}
+
+<h1>AddLanguage</h1>
+
+<h4>EmployeeLanguage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddLanguage">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <input asp-for="EmployeeId" class="form-control" />
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language" class="control-label"></label>
+                <input asp-for="Language" class="form-control" />
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label asp-for="WrittenLevel" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <select asp-for="WrittenLevel" class="custom-select mr-sm-2"
+                            asp-items="@Html.GetEnumSelectList<Level>()">
+                        <option value="">Please select</option>
+
+                    </select>
+                    <span asp-validation-for="WrittenLevel" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="SpeakingLevel" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <select asp-for="SpeakingLevel" class="custom-select mr-sm-2"
+                            asp-items="@Html.GetEnumSelectList<Level>()">
+                        <option value="">Please select</option>
+
+                    </select>
+                    <span asp-validation-for="SpeakingLevel" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="NativeLang" class="control-label"></label>
+                <input asp-for="NativeLang" class="form-control" />
+                <span asp-validation-for="NativeLang" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LanguageId" class="control-label"></label>
+                <input asp-for="LanguageId" class="form-control" />
+                <span asp-validation-for="LanguageId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <p>
+                    <a asp-action="AddLanguage">Add More</a>
+                </p>
+            </div>
+        </form>
+       
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

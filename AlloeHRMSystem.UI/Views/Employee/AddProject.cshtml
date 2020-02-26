@@ -1,0 +1,72 @@
+﻿@model AlloeHRMSystem.UI.ViewModels.EmployeeViewModel.AddProjectViewModel
+
+@{
+    ViewData["Title"] = "AddProject";
+}
+
+<h1>AddProject</h1>
+
+<h4>EmployeeProject</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddProject">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <input asp-for="EmployeeId" class="form-control" />
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Start" class="control-label"></label>
+                <input asp-for="Start" class="form-control" />
+                <span asp-validation-for="Start" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Finish" class="control-label"></label>
+                <input asp-for="Finish" class="form-control" />
+                <span asp-validation-for="Finish" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Completed" class="control-label"></label>
+                <input asp-for="Completed" class="form-control" />
+                <span asp-validation-for="Completed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobPosition" class="control-label"></label>
+                <input asp-for="JobPosition" class="form-control" />
+                <span asp-validation-for="JobPosition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectId" class="control-label"></label>
+                <input asp-for="ProjectId" class="form-control" />
+                <span asp-validation-for="ProjectId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <p>
+                    <a asp-action="AddProject">Add More</a>
+                </p>
+            </div>
+        </form>
+       
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

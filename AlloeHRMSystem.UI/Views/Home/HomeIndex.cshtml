@@ -1,0 +1,149 @@
+﻿@model IEnumerable<AlloeHRMSystem.UI.ViewModels.HomeIndexModel.HomeIndexViewModel>
+
+
+
+@inject SignInManager<AppUser> signInManager
+
+@using AlloeHRMSystem.UI.Security
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@*@model IEnumerable<AlloeHRMSystem.Domain.Entities.Employe*@
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h1>HomeIndex</h1>
+
+<br />
+
+
+<div class="mdi-navigation active ">
+    <h4>Please Kindly Update Your Data</h4>
+    <p>
+        <ul class="nav-item ml-auto style-switch-button">
+            <li class="nav-link btn-link">
+
+                <a asp-action="Index" asp-controller="Employee" class="btn btn-primary m-1">Update Info</a>
+            </li>
+        </ul>
+
+    </p>
+</div>
+
+<br />
+
+<form asp-controller="Home" asp-action="HomeIndex" method="get">
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                
+                <a asp-controller="Employee" asp-action="EditEmployee" asp-route-id="@item.EmployeeId">Edit</a>
+                
+                
+
+                @*<a asp-page="./Details" asp-route-id="@item.UserId">Details</a>*@
+
+                @*@if ((await AuthorizationService.AuthorizeAsync(
+              User, item,
+               EmployeeOperations.Delete)).Succeeded)
+               {
+              <text> | </text>
+                <a asp-page="./Delete" asp-route-id="@item.ContactId">Delete</a>
+               }
+                *@
+                @*@model ProcRec.Models.Candidat
+
+              @{
+
+               if (!Session["ID"].Equals(id.ToString()))
+                 {
+                  Session.Abandon();
+                  return RedirectToAction("LoginCandidat", "Candidat");
+                }*@
+            </td>
+        </tr>
+    }
+</table>
