@@ -124,7 +124,7 @@ namespace AlloeHRMSystem.UI.Controllers
                 var user = new AppUser
                 {
                   //  EmployeeId = model.EmployeeId,
-                    UserId = model.UserId,
+                  //  UserId = model.UserId,
                     UserName = model.UserName,
                     Email = model.Email,
                     FirstName = model.FirstName,

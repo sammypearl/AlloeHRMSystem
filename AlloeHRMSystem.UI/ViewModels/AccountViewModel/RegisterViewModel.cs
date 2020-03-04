@@ -11,8 +11,8 @@ namespace AlloeHRMSystem.UI.ViewModels.AccountViewModel
 {
     public class RegisterViewModel
     {
-        [Required]
-        public string UserId { get; set; }
+        //[Required]
+      //  public string UserId { get; set; }
       //  [Required]
       //  public int EmployeeId { get; set; }
         [Required]

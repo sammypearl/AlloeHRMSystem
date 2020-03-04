@@ -36,7 +36,7 @@
                     @if ((await authorizationService.AuthorizeAsync(User, "EditRolePolicy")).Succeeded)
                     {
                         <a class="btn btn-primary" asp-action="EditRole"
-                           asp-controller="Administration" asp-route-id="@role.Id">
+                           asp-controller="Admin" asp-route-id="@role.Id">
                             Edit
                         </a>
                     }
@@ -69,7 +69,7 @@ else
                 Use the button below to create a role
             </h5>
             <a class="btn btn-primary" style="width:auto"
-               asp-controller="administration" asp-action="CreateRole">
+               asp-controller="admin" asp-action="CreateRole">
                 Create Role
             </a>
         </div>

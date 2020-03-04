@@ -2928,31 +2928,31 @@ a.close-styler {
 
 .style-switch-wrapper button:active,
 .style-switch-wrapper button:focus {
-  border: 2px solid #FFF;
+  border: 2px solid #FFf;
 }
 
 .style-switch-wrapper #preset1 {
-  background-color: #b200ff;
+  background-color: #1dcaff;
 }
 
 .style-switch-wrapper #preset2 {
-  background-color: #81c83c;
+  background-color: #7be514;
 }
 
 .style-switch-wrapper #preset3 {
-  background-color: #81c83c;
+  background-color: #21dc13;
 }
 
 .style-switch-wrapper #preset4 {
-  background-color: #8C42BA;
-}
-
-.style-switch-wrapper #preset5 {
   background-color: #b200ff;
 }
 
+.style-switch-wrapper #preset5 {
+  background-color: #00d0ff;
+}
+
 .style-switch-wrapper #preset6 {
-  background-color: #8C42BA;
+  background-color: #005bff;
 }
 
 /* Responsive styles

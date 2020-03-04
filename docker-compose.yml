@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  alloehrmsystem.ui:
+    image: ${DOCKER_REGISTRY-}alloehrmsystemui
+    build:
+      context: .
+      dockerfile: AlloeHRMSystem.UI/Dockerfile

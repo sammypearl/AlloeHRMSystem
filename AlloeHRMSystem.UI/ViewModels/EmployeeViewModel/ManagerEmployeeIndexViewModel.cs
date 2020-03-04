@@ -20,7 +20,7 @@ namespace AlloeHRMSystem.UI.ViewModels.EmployeeViewModel
         public string Lastname { get; set; }
         [Required]
         [Phone]
-        [Display(Name = "Mobile Phone 1")]
+        [Display(Name = "Mobile Phone")]
         [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
         [Required]

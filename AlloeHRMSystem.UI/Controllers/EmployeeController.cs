@@ -410,7 +410,7 @@ namespace AlloeHRMSystem.UI.Controllers
             string uniqueFileName = null;
             if (attach.File != null)
             {
-                string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "Attached Files");
+                string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "AttachedFiles");
                 uniqueFileName = Guid.NewGuid().ToString() + "-" + attach.File.FileName;
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
@@ -558,7 +558,7 @@ namespace AlloeHRMSystem.UI.Controllers
         {
             var employee = _employeeRepository.HrGetEmployee(id, name);
 
-            HrUpdateViewModel hrUpdateEmployee = new HrUpdateViewModel()
+            EmployeeEditViewModel hrUpdateEmployee = new EmployeeEditViewModel()
             {
                 EmployeeId = employee.EmployeeId,
                // UserId = employee.UserId,

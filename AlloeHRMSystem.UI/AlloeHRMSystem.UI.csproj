@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UserSecretsId>aspnet-AlloeHRMSystem.UI-D7374704-8F5C-435F-BA4A-DDA95ECE8EF2</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
 
@@ -40,7 +41,7 @@
 
 
   <ItemGroup>
-    <Folder Include="wwwroot\Attached Files\" />
+    <Folder Include="wwwroot\AttachedFiles\" />
   </ItemGroup>
 
 </Project>

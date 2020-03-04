@@ -11,9 +11,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace AlloeHRMSystem.UI.Controllers
 {
+    [Authorize(Policy = "AdminRolePolicy")]
     public class AdminController : Controller
     {
         private readonly RoleManager<AppRole> roleManager;
@@ -37,6 +39,7 @@ namespace AlloeHRMSystem.UI.Controllers
         [HttpGet]
         public async Task<IActionResult> ManageUserClaims(string userId)
         {
+
             var user = await userManager.FindByIdAsync(userId);
 
             if (user == null)
@@ -76,6 +79,7 @@ namespace AlloeHRMSystem.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> ManageUserClaims(UserClaimsViewModel model)
         {
+          
             var user = await userManager.FindByIdAsync(model.UserId);
 
             if (user == null)
@@ -105,13 +109,14 @@ namespace AlloeHRMSystem.UI.Controllers
 
                 return View(model);
             }
-            return RedirectToAction("", new { Id = model.UserId });
+            return RedirectToAction("EditUser", new { Id = model.UserId });
         }
 
         [HttpGet]
         public async Task<IActionResult> ManageUserRoles(string userId)
         {
-            ViewBag.UserId = userId;
+            //  ViewBag.UserId = userId;
+           
 
             var user = await userManager.FindByIdAsync(userId);
 
@@ -146,7 +151,7 @@ namespace AlloeHRMSystem.UI.Controllers
         }
 
         [HttpPost]
-       // [Authorize(Policy = "EditRolePolicy")]
+        [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> ManageUserRoles(List<UserRolesViewModel> model, string userId)
         {
             var user = await userManager.FindByIdAsync(userId);
@@ -210,7 +215,7 @@ namespace AlloeHRMSystem.UI.Controllers
         }
 
         [HttpPost]
-       // [Authorize(Policy = "DeleteRolePolicy")]
+        [Authorize(Policy = "DeleteRolePolicy")]
         public async Task<IActionResult> DeleteRole(string id)
         {
             var role = await roleManager.FindByIdAsync(id);
@@ -241,7 +246,7 @@ namespace AlloeHRMSystem.UI.Controllers
 
                     return View("ListRoles");
                 }
-                catch (DbUpdateException ex)
+                catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
                 {
                     logger.LogError($"Error deleting role {ex}");
                     ViewBag.ErrorTitle = $"{role.Name} role is in use";
@@ -280,7 +285,8 @@ namespace AlloeHRMSystem.UI.Controllers
             var model = new EditUserViewModel
             {
                // EmployeeId = user.EmployeeId,
-                UserId = user.UserId,
+              //  UserId = user.UserId,
+               Id = user.Id,
                 UserName = user.Email,
                 Email = user.Email,
                 FirstName = user.FirstName,
@@ -317,7 +323,7 @@ namespace AlloeHRMSystem.UI.Controllers
             else
             {
               //  user.EmployeeId = model.EmployeeId;
-                user.UserId = model.UserId;
+              //  user.UserId = model.UserId;
                 user.UserName = model.Email;
                 user.Email = model.Email;
                 user.FirstName = model.FirstName;
@@ -400,6 +406,8 @@ namespace AlloeHRMSystem.UI.Controllers
         }
 
         [HttpGet]
+        // now using custom authorization policy
+         [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> EditRole(string id)
         {
             var role = await roleManager.FindByIdAsync(id);
@@ -431,6 +439,8 @@ namespace AlloeHRMSystem.UI.Controllers
 
 
         [HttpPost]
+        // now using custom authorization policy
+         [Authorize(Policy = "EditRolePolicy")]
         public async Task<IActionResult> EditRole(EditRoleViewModel model)
         {
             var role = await roleManager.FindByIdAsync(model.Id);

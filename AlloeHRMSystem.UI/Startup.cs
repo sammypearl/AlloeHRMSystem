@@ -47,10 +47,10 @@ namespace AlloeHRMSystem.UI
             }).AddEntityFrameworkStores<AlloeContext>();
             services.AddMvc(options =>
             {
-                //var policy = new AuthorizationPolicyBuilder()
-                //                 .RequireAuthenticatedUser()
-                //                 .Build();
-               // options.Filters.Add(new AuthorizeFilter(policy));
+                var policy = new AuthorizationPolicyBuilder()
+                                 .RequireAuthenticatedUser()
+                                 .Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
             }).AddXmlSerializerFormatters();
 
             services.ConfigureApplicationCookie(options =>
@@ -60,20 +60,24 @@ namespace AlloeHRMSystem.UI
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("DeleteRolePolicy",
-                    policy => policy.RequireClaim("Delete Role"));
+              //  options.AddPolicy("DeleteRolePolicy",
+               //     policy => policy.RequireClaim("Delete Role"));
 
-                options.AddPolicy("EditRolePolicy",
-                    policy => policy.AddRequirements(new ManageAdminRolesAndClaimsRequirement()));
+                options.AddPolicy("DeleteRolePolicy",
+                    policy => policy.RequireRole("Admin"));
+
+                //options.AddPolicy("EditRolePolicy",
+                //   policy => policy.AddRequirements(new ManageAdminRolesAndClaimsRequirement()));
 
                 options.AddPolicy("EditRolePolicy",
                   policy => policy.RequireAssertion(context =>
-                  context.User.IsInRole("Admin") &&
+                  context.User.IsInRole("Admin") ||
                   context.User.HasClaim(claim => claim.Type == "Edit Role" && claim.Value == "true")
                   || context.User.IsInRole("Super Admin")
+                  
                   ));
 
-                 options.InvokeHandlersAfterFailure = false;
+                options.InvokeHandlersAfterFailure = false;
 
                 options.AddPolicy("AdminRolePolicy",
                policy => policy.RequireRole("Admin"));
@@ -137,7 +141,13 @@ namespace AlloeHRMSystem.UI
             app.UseAuthentication();
            // AlloeHRMSystemInitializers.Initialize(context, userManager, roleManager);
             app.UseAuthorization();
-
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller=Admin}/{action=listusers}/{id?}");
+            //    endpoints.MapRazorPages();
+            //});
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
