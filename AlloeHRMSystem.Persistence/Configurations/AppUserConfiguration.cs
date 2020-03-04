@@ -12,14 +12,14 @@ namespace AlloeHRMSystem.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
-             builder.HasKey(e => e.UserId);
+            // builder.HasAlternateKey(e => e.UserId);
             
             // builder.HasKey(e => e.Username);
             //builder.Property(e => e.EmployeeId)
             //    .HasMaxLength(30);
 
-            builder.Property(e => e.UserId)
-               .HasMaxLength(30).ValueGeneratedNever();
+          //  builder.Property(e => e.UserId)
+           //    .HasMaxLength(30);
 
             builder.Property(e => e.FirstName) 
                 .HasMaxLength(50);

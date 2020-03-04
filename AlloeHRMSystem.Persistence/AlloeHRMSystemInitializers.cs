@@ -109,16 +109,17 @@ namespace AlloeHRMSystem.Persistence
 
         public static async Task SeedAppUsers(UserManager<AppUser> userManager)
         {
-            var MyEmailAddress = "sammy1@samuel-ak.tech";
+            // var MyEmailAddress = "sammy1@samuel-ak.tech";
+            string role1 = "Admin";
             var MyPassword = "Sammyk_@001";
-            if (await userManager.FindByNameAsync(MyEmailAddress) == null)
+            if (await userManager.FindByNameAsync("sammy1@samuel-ak.tech") == null)
             {
                 var appUsers = new AppUser
                 {
                    // EmployeeId = 1,
-                    UserId = "001",
-                    UserName = MyEmailAddress,
-                    Email = MyEmailAddress,
+                   // UserId = "001",
+                    UserName = "sammy1@samuel-ak.tech",
+                    Email = "sammy1@samuel-ak.tech",
                     // Password = MyPassword,
                     FirstName = "Samuel",
                     LastName = "Gates",
@@ -140,22 +141,23 @@ namespace AlloeHRMSystem.Persistence
                 if (result.Succeeded)
                 {
                    await userManager.AddPasswordAsync(appUsers, MyPassword);
-                   await  userManager.AddToRoleAsync(appUsers, "Admin");
+                   await  userManager.AddToRoleAsync(appUsers, role1);
                     
                 }
             }
 
-            var MyEmailAddress2 = "sammy2@samuel-ak.tech";
+            // var MyEmailAddress2 = "sammy2@samuel-ak.tech";
+            string role2 = "Hr";
             var MyPassword2 = "Sammyk_@002";
-            if (await userManager.FindByNameAsync(MyEmailAddress2) == null)
+            if (await userManager.FindByNameAsync("sammy2@samuel-ak.tech") == null)
             {
 
                 var appUsers = new AppUser
                 {
                    // EmployeeId = 2,
-                    UserId = "002",
-                    UserName = MyEmailAddress2,
-                    Email = MyEmailAddress2,
+                  //  UserId = "002",
+                    UserName = "sammy2@samuel-ak.tech",
+                    Email = "sammy2@samuel-ak.tech",
                     FirstName = "Samuel",
                     LastName = "Akinsoju",
                     Title = "Mr",
@@ -177,21 +179,22 @@ namespace AlloeHRMSystem.Persistence
                 if (result.Succeeded)
                 {
                     await userManager.AddPasswordAsync(appUsers, MyPassword2);
-                   await  userManager.AddToRoleAsync(appUsers, "HR");
+                   await  userManager.AddToRoleAsync(appUsers, role2);
                 }
 
             }
 
-            var MyEmailAddress3 = "sammy3@samuel-ak.tech";
+            // var MyEmailAddress3 = "sammy3@samuel-ak.tech";
+            string role3 = "Manager";
             var MyPassword3 = "Sammyk_@003";
-            if (await userManager.FindByNameAsync(MyEmailAddress3) == null)
+            if (await userManager.FindByNameAsync("sammy3@samuel-ak.tech") == null)
             {
                 var appUsers = new AppUser
                 {
                    // EmployeeId = 3,
-                    UserId = "003",
-                    UserName = MyEmailAddress3,
-                    Email = MyEmailAddress3,
+                  //  UserId = "003",
+                    UserName = "sammy3@samuel-ak.tech",
+                    Email = "sammy3@samuel-ak.tech",
                     FirstName = "Sammy Achillis",
                     LastName = "Achillis",
                     Title = "Dr",
@@ -213,58 +216,144 @@ namespace AlloeHRMSystem.Persistence
                 if (result.Succeeded)
                 {
                    await   userManager.AddPasswordAsync(appUsers, MyPassword3);
-                   await  userManager.AddToRoleAsync(appUsers, "Manager");
+                   await  userManager.AddToRoleAsync(appUsers, role3);
                 }
             }
 
-        }
-        public static async Task SeedAppRoles(RoleManager<AppRole> roleManager)
-        {
-            if ( !roleManager.RoleExistsAsync("Admin").Result)
+            // var MyEmailAddress4 = "sammy4@samuel-ak.tech";
+            string role4 = "Employee";
+            var MyPassword4 = "Sammyk_@004";
+            if (await userManager.FindByNameAsync("sammy4@samuel-ak.tech") == null)
             {
-                AppRole role = new AppRole();
-                role.Name = "Admin";
-                role.Description = "Responsible for creating new AppUsers";
-                role.CreatedBy = "Samuel";
-                role.CreateDate = DateTime.Parse("May 11 2014");
-                role.ModifiedBy = "Samuel";
-                role.ModifiedDate = DateTime.Parse("May 11 2014");
-                IdentityResult roleResult = await roleManager.CreateAsync(role);
+                var appUsers = new AppUser
+                {
+                    // EmployeeId = 3,
+                 //   UserId = "004",
+                    UserName = "sammy4@samuel-ak.tech",
+                    Email = "sammy4@samuel-ak.tech",
+                    FirstName = "Anthony",
+                    LastName = "Robbins",
+                    Title = "Dr",
+                    MobileNo = "+2348062623335",
+                    Language = "German",
+                    Company = "Facebook Inc",
+                    Department = Dept.Maintenance,
+                    JobTitle = "Maintenance Engineer",
+                    HomePhone = "+2348074766622",
+                    CreatedBy = "Sammy Arthur",
+                    CreateDate = DateTime.Parse("Feb 20 2017"),
+                    ModifyBy = "Lennon Lewwis",
+                    LastPasswordUpdate = DateTime.Parse("May 11 2016"),
+                    PasswordExpirationEnable = true,
+                    CanMakeCall = true,
+                };
+
+                IdentityResult result = await userManager.CreateAsync(appUsers);
+                if (result.Succeeded)
+                {
+                    await userManager.AddPasswordAsync(appUsers, MyPassword4);
+                    await userManager.AddToRoleAsync(appUsers, role4);
+                }
             }
 
-            if ( !roleManager.RoleExistsAsync("HR").Result)
+
+            string role5 = "Super Admin";
+            var MyPassword5 = "Sammyk_@005";
+            if (await userManager.FindByNameAsync("sammy5@samuel-ak.tech") == null)
             {
-                AppRole role = new AppRole();
-                role.Name = "HR";
-                role.Description = "Responsible for creating new Employee";
-                role.CreatedBy = "Gary";
-                role.CreateDate = DateTime.Parse("Feb 24 2015");
-                role.ModifiedBy = "Gary";
-                role.ModifiedDate = DateTime.Parse("May 17 2017");
-                IdentityResult roleResult = await roleManager.CreateAsync(role);
+                var appUsers = new AppUser
+                {
+                    // EmployeeId = 3,
+                    //   UserId = "004",
+                    UserName = "sammy5@samuel-ak.tech",
+                    Email = "sammy5@samuel-ak.tech",
+                    FirstName = "Donald",
+                    LastName = "Trump",
+                    Title = "Dr",
+                    MobileNo = "+2348062623335",
+                    Language = "German",
+                    Company = "Facebook Inc",
+                    Department = Dept.Maintenance,
+                    JobTitle = "Maintenance Engineer",
+                    HomePhone = "+2348074766622",
+                    CreatedBy = "Sammy Arthur",
+                    CreateDate = DateTime.Parse("Feb 20 2017"),
+                    ModifyBy = "Lennon Lewwis",
+                    LastPasswordUpdate = DateTime.Parse("May 11 2016"),
+                    PasswordExpirationEnable = true,
+                    CanMakeCall = true,
+                };
+
+                IdentityResult result = await userManager.CreateAsync(appUsers);
+                if (result.Succeeded)
+                {
+                    await userManager.AddPasswordAsync(appUsers, MyPassword5);
+                    await userManager.AddToRoleAsync(appUsers, role5);
+                }
             }
 
-            if (!roleManager.RoleExistsAsync("Manager").Result)
-            {
-                AppRole role = new AppRole();
-                role.Name = "Manager";
-                role.Description = "Responsible for Assigning Roles Managing All AppUsers in its Dept";
-                role.CreatedBy = "Trump";
-                role.CreateDate = DateTime.Parse("May 21 2012");
-                role.ModifiedBy = "Trump";
-                role.ModifiedDate = DateTime.Parse("Feb 20 2013");
-                IdentityResult roleResult = await roleManager.CreateAsync(role);
-            }
+        }   
 
-            if (!roleManager.RoleExistsAsync("Employee").Result)
+
+            public static async Task SeedAppRoles(RoleManager<AppRole> roleManager)
+            {
+                if ( !roleManager.RoleExistsAsync("Admin").Result)
+                {
+                    AppRole role = new AppRole();
+                    role.Name = "Admin";
+                    role.Description = "Responsible for creating new AppUsers";
+                    role.CreatedBy = "Samuel";
+                    role.CreateDate = DateTime.Parse("May 11 2014");
+                    role.ModifiedBy = "Samuel";
+                    role.ModifiedDate = DateTime.Parse("May 11 2014");
+                    IdentityResult roleResult = await roleManager.CreateAsync(role);
+                }
+
+                if ( !roleManager.RoleExistsAsync("Hr").Result)
+                {
+                    AppRole role = new AppRole();
+                    role.Name = "Hr";
+                    role.Description = "Responsible for creating new Employee";
+                    role.CreatedBy = "Gary";
+                    role.CreateDate = DateTime.Parse("Feb 24 2015");
+                    role.ModifiedBy = "Gary";
+                    role.ModifiedDate = DateTime.Parse("May 17 2017");
+                    IdentityResult roleResult = await roleManager.CreateAsync(role);
+                }
+
+                if (!roleManager.RoleExistsAsync("Manager").Result)
+                {
+                    AppRole role = new AppRole();
+                    role.Name = "Manager";
+                    role.Description = "Responsible for Assigning Roles Managing All AppUsers in its Dept";
+                    role.CreatedBy = "Trump";
+                    role.CreateDate = DateTime.Parse("May 21 2012");
+                    role.ModifiedBy = "Trump";
+                    role.ModifiedDate = DateTime.Parse("Feb 20 2013");
+                    IdentityResult roleResult = await roleManager.CreateAsync(role);
+                }
+
+                if (!roleManager.RoleExistsAsync("Employee").Result)
+                {
+                    AppRole role = new AppRole();
+                    role.Name = "Employee";
+                    role.Description = "Normal Role for Every AppUsers";
+                    role.CreatedBy = "Bill";
+                    role.CreateDate = DateTime.Parse("Oct 23 2014");
+                    role.ModifiedBy = "Bill";
+                    role.ModifiedDate = DateTime.Parse("May 12 2015");
+                    IdentityResult roleResult = await roleManager.CreateAsync(role);
+                }
+
+            if (!roleManager.RoleExistsAsync("Super Admin").Result)
             {
                 AppRole role = new AppRole();
-                role.Name = "Employee";
+                role.Name = "Super Admin";
                 role.Description = "Normal Role for Every AppUsers";
-                role.CreatedBy = "Bill";
-                role.CreateDate = DateTime.Parse("Oct 23 2014");
-                role.ModifiedBy = "Bill";
-                role.ModifiedDate = DateTime.Parse("May 12 2015");
+                role.CreatedBy = "Samuel";
+                role.CreateDate = DateTime.Parse("Oct 23 2017");
+                role.ModifiedBy = "Samuel";
+                role.ModifiedDate = DateTime.Parse("May 12 2017");
                 IdentityResult roleResult = await roleManager.CreateAsync(role);
             }
         }
@@ -390,8 +479,368 @@ namespace AlloeHRMSystem.Persistence
                             LegalDayOff = "22"
                         });
 
+                   Employees.Add(4,
+                       new Employee
+                       {
+                           EmployeeId = 4,
+                            //  UserId = "003",
+                            Firstname = "Anthony",
+                           Lastname = "Robbins",
+                           Phone = "+2348062623335",
+                           Email = "sammy4@samuel-ak.tech",
+                           HomeAddress = "4, thesame street NYC",
+                           Department = Dept.Maintenance,
+                           City = "Warsaw",
+                           Country = "Poland",
+                           JobTitle = "Software Support",
+                           Rank = "IT Lead",
+                           BloodType = "B+",
+                           MaritalStatus = "Single",
+                           DateOfBirth = DateTime.Parse("Jan 26 1997"),
+                           Gender = "Male",
+                           PhotoPath = "~/images/noimage.jpg",
+                           Nationality = "British",
+                           HousePhone = "+2349088844433",
+                           ContractType = "ShortTerm",
+                           JobLocation = "Britain",
+                           IsConfirmed = true,
+                           CreateDate = DateTime.Parse("Feb 20 2019"),
+                           LastModifiedBy = "Lennon Lewwis",
+                           CreatedBy = "Sammy Arthur",
+                           StartDate = DateTime.Parse("Mar 23 2013"),
+                           QuitDate = DateTime.Parse("Sep 23 2015"),
+                           IsLeavedJob = false,
+                           LeaveJobDate = DateTime.Parse("Nov 22 2018"),
+                           LeaveJobReason = "Not getting enough vacation",
+                           LegalDayOff = "22"
+                       });
 
-                foreach (var employee in Employees.Values)
+                 Employees.Add(5,
+                       new Employee
+                       {
+                           EmployeeId = 5,
+                            //  UserId = "003",
+                            Firstname = "Mel",
+                           Lastname = "Robbins",
+                           Phone = "+2348062673445",
+                           Email = "sammy5@samuel-ak.tech",
+                           HomeAddress = "7, Sesame street NYC",
+                           Department = Dept.Sales,
+                           City = "Budapest",
+                           Country = "Romania",
+                           JobTitle = "Software Developer",
+                           Rank = "Project Lead",
+                           BloodType = "B+",
+                           MaritalStatus = "Single",
+                           DateOfBirth = DateTime.Parse("Jan 26 1987"),
+                           Gender = "Female",
+                           PhotoPath = "~/images/noimage.jpg",
+                           Nationality = "British",
+                           HousePhone = "+2349088844433",
+                           ContractType = "ShortTerm",
+                           JobLocation = "Britain",
+                           IsConfirmed = true,
+                           CreateDate = DateTime.Parse("Feb 20 2018"),
+                           LastModifiedBy = "Lennon Lewwis",
+                           CreatedBy = "Sammy Arthur",
+                           StartDate = DateTime.Parse("Mar 23 2012"),
+                           QuitDate = DateTime.Parse("Sep 23 2014"),
+                           IsLeavedJob = false,
+                           LeaveJobDate = DateTime.Parse("Nov 22 2019"),
+                           LeaveJobReason = "Not getting enough vacation",
+                           LegalDayOff = "22"
+                       });
+
+                  Employees.Add(6,
+                       new Employee
+                       {
+                           EmployeeId = 6,
+                            //  UserId = "003",
+                            Firstname = "Steve",
+                           Lastname = "Willis",
+                           Phone = "+2348062323445",
+                           Email = "sammy6@samuel-ak.tech",
+                           HomeAddress = "8, Sesame street NYC",
+                           Department = Dept.Admin,
+                           City = "Seatle",
+                           Country = "USA",
+                           JobTitle = "Software Tester",
+                           Rank = "Project Lead",
+                           BloodType = "B+",
+                           MaritalStatus = "Single",
+                           DateOfBirth = DateTime.Parse("Jan 26 1987"),
+                           Gender = "Female",
+                           PhotoPath = "~/images/noimage.jpg",
+                           Nationality = "British",
+                           HousePhone = "+2349088844433",
+                           ContractType = "ShortTerm",
+                           JobLocation = "Britain",
+                           IsConfirmed = true,
+                           CreateDate = DateTime.Parse("Feb 20 2018"),
+                           LastModifiedBy = "Lennon Lewwis",
+                           CreatedBy = "Sammy Arthur",
+                           StartDate = DateTime.Parse("Mar 23 2012"),
+                           QuitDate = DateTime.Parse("Sep 23 2014"),
+                           IsLeavedJob = false,
+                           LeaveJobDate = DateTime.Parse("Nov 22 2019"),
+                           LeaveJobReason = "Not getting enough vacation",
+                           LegalDayOff = "22"
+                       });
+
+
+                   Employees.Add(7,
+                       new Employee
+                       {
+                           EmployeeId = 7,
+                            //  UserId = "003",
+                            Firstname = "Don",
+                           Lastname = "Arthur",
+                           Phone = "+2348062623445",
+                           Email = "sammy7@samuel-ak.tech",
+                           HomeAddress = "7, Sesame street NYC",
+                           Department = Dept.Security,
+                           City = "Budapest",
+                           Country = "Romania",
+                           JobTitle = "Software Developer",
+                           Rank = "Project Lead",
+                           BloodType = "B+",
+                           MaritalStatus = "Single",
+                           DateOfBirth = DateTime.Parse("Jan 26 1987"),
+                           Gender = "Female",
+                           PhotoPath = "~/images/noimage.jpg",
+                           Nationality = "British",
+                           HousePhone = "+2349088844433",
+                           ContractType = "ShortTerm",
+                           JobLocation = "Britain",
+                           IsConfirmed = true,
+                           CreateDate = DateTime.Parse("Feb 20 2018"),
+                           LastModifiedBy = "Lennon Lewwis",
+                           CreatedBy = "Sammy Arthur",
+                           StartDate = DateTime.Parse("Mar 23 2012"),
+                           QuitDate = DateTime.Parse("Sep 23 2014"),
+                           IsLeavedJob = false,
+                           LeaveJobDate = DateTime.Parse("Nov 22 2019"),
+                           LeaveJobReason = "Not getting enough vacation",
+                           LegalDayOff = "22"
+                       });
+
+
+                   Employees.Add(8,
+                       new Employee
+                       {
+                           EmployeeId = 8,
+                            //  UserId = "003",
+                            Firstname = "Don",
+                           Lastname = "Willianms",
+                           Phone = "+2348062623445",
+                           Email = "sammy8@samuel-ak.tech",
+                           HomeAddress = "7, Sesame street NYC",
+                           Department = Dept.Payroll,
+                           City = "Budapest",
+                           Country = "Romania",
+                           JobTitle = "Software Developer",
+                           Rank = "Project Lead",
+                           BloodType = "B+",
+                           MaritalStatus = "Single",
+                           DateOfBirth = DateTime.Parse("Jan 26 1987"),
+                           Gender = "Female",
+                           PhotoPath = "~/images/noimage.jpg",
+                           Nationality = "British",
+                           HousePhone = "+2349088844433",
+                           ContractType = "ShortTerm",
+                           JobLocation = "Britain",
+                           IsConfirmed = true,
+                           CreateDate = DateTime.Parse("Feb 20 2018"),
+                           LastModifiedBy = "Lennon Lewwis",
+                           CreatedBy = "Sammy Arthur",
+                           StartDate = DateTime.Parse("Mar 23 2012"),
+                           QuitDate = DateTime.Parse("Sep 23 2014"),
+                           IsLeavedJob = false,
+                           LeaveJobDate = DateTime.Parse("Nov 22 2019"),
+                           LeaveJobReason = "Not getting enough vacation",
+                           LegalDayOff = "23"
+                       });
+
+                  Employees.Add(9,
+                       new Employee
+                       {
+                           EmployeeId = 9,
+                            //  UserId = "003",
+                            Firstname = "Steve",
+                           Lastname = "Ottis",
+                           Phone = "+2348063623445",
+                           Email = "sammy9@samuel-ak.tech",
+                           HomeAddress = "7, Sesdee street NYC",
+                           Department = Dept.Marketing,
+                           City = "Brooklyn",
+                           Country = "USA",
+                           JobTitle = "Marketing Manager",
+                           Rank = "Marketing Manager",
+                           BloodType = "B+",
+                           MaritalStatus = "Single",
+                           DateOfBirth = DateTime.Parse("Jan 26 1987"),
+                           Gender = "Male",
+                           PhotoPath = "~/images/noimage.jpg",
+                           Nationality = "British",
+                           HousePhone = "+2349088844433",
+                           ContractType = "ShortTerm",
+                           JobLocation = "Britain",
+                           IsConfirmed = true,
+                           CreateDate = DateTime.Parse("Feb 20 2018"),
+                           LastModifiedBy = "Lennon Lewwis",
+                           CreatedBy = "Sammy Arthur",
+                           StartDate = DateTime.Parse("Mar 23 2012"),
+                           QuitDate = DateTime.Parse("Sep 23 2014"),
+                           IsLeavedJob = false,
+                           LeaveJobDate = DateTime.Parse("Nov 22 2019"),
+                           LeaveJobReason = "Not getting enough vacation",
+                           LegalDayOff = "22"
+                       });
+
+                 Employees.Add(10,
+                       new Employee
+                       {
+                           EmployeeId = 10,
+                            //  UserId = "003",
+                            Firstname = "Michael",
+                           Lastname = "Smith",
+                           Phone = "+2348044623445",
+                           Email = "sammy10@samuel-ak.tech",
+                           HomeAddress = "7, mameme street NYC",
+                           Department = Dept.Admin,
+                           City = "Abuja",
+                           Country = "Nigeria",
+                           JobTitle = "Admin Executive",
+                           Rank = "Admin Manager",
+                           BloodType = "B+",
+                           MaritalStatus = "Married",
+                           DateOfBirth = DateTime.Parse("Jan 26 1987"),
+                           Gender = "Female",
+                           PhotoPath = "~/images/noimage.jpg",
+                           Nationality = "British",
+                           HousePhone = "+2349088844433",
+                           ContractType = "ShortTerm",
+                           JobLocation = "Britain",
+                           IsConfirmed = true,
+                           CreateDate = DateTime.Parse("Feb 20 2018"),
+                           LastModifiedBy = "Lennon Lewwis",
+                           CreatedBy = "Sammy Arthur",
+                           StartDate = DateTime.Parse("Mar 23 2012"),
+                           QuitDate = DateTime.Parse("Sep 23 2014"),
+                           IsLeavedJob = false,
+                           LeaveJobDate = DateTime.Parse("Nov 22 2019"),
+                           LeaveJobReason = "Not getting enough vacation",
+                           LegalDayOff = "22"
+                       });
+
+                  Employees.Add(11,
+                       new Employee
+                       {
+                           EmployeeId = 11,
+                            //  UserId = "003",
+                            Firstname = "Dwayne",
+                           Lastname = "Johnson",
+                           Phone = "+2348062223445",
+                           Email = "sammy11@samuel-ak.tech",
+                           HomeAddress = "7, samane street NYC",
+                           Department = Dept.HR,
+                           City = "Tokyo",
+                           Country = "Japan",
+                           JobTitle = "IT Support",
+                           Rank = "Technical Lead",
+                           BloodType = "B+",
+                           MaritalStatus = "Single",
+                           DateOfBirth = DateTime.Parse("Jan 26 1987"),
+                           Gender = "Female",
+                           PhotoPath = "~/images/noimage.jpg",
+                           Nationality = "British",
+                           HousePhone = "+2349088844433",
+                           ContractType = "ShortTerm",
+                           JobLocation = "Britain",
+                           IsConfirmed = true,
+                           CreateDate = DateTime.Parse("Feb 20 2018"),
+                           LastModifiedBy = "Lennon Lewwis",
+                           CreatedBy = "Sammy Arthur",
+                           StartDate = DateTime.Parse("Mar 23 2012"),
+                           QuitDate = DateTime.Parse("Sep 23 2014"),
+                           IsLeavedJob = false,
+                           LeaveJobDate = DateTime.Parse("Nov 22 2019"),
+                           LeaveJobReason = "Not getting enough vacation",
+                           LegalDayOff = "22"
+                       });
+
+                    Employees.Add(12,
+                       new Employee
+                       {
+                           EmployeeId = 12,
+                            //  UserId = "003",
+                            Firstname = "Bill",
+                           Lastname = "Stanped",
+                           Phone = "+2348062622245",
+                           Email = "sammy12@samuel-ak.tech",
+                           HomeAddress = "12, Laeddy street NYC",
+                           Department = Dept.Sales,
+                           City = "Sicily",
+                           Country = "Italy",
+                           JobTitle = "Sales Representative",
+                           Rank = "Sale Manager",
+                           BloodType = "B+",
+                           MaritalStatus = "Single",
+                           DateOfBirth = DateTime.Parse("Jan 26 1987"),
+                           Gender = "Female",
+                           PhotoPath = "~/images/noimage.jpg",
+                           Nationality = "British",
+                           HousePhone = "+2349088844433",
+                           ContractType = "ShortTerm",
+                           JobLocation = "Britain",
+                           IsConfirmed = true,
+                           CreateDate = DateTime.Parse("Feb 20 2018"),
+                           LastModifiedBy = "Lennon Lewwis",
+                           CreatedBy = "Sammy Arthur",
+                           StartDate = DateTime.Parse("Mar 23 2012"),
+                           QuitDate = DateTime.Parse("Sep 23 2014"),
+                           IsLeavedJob = false,
+                           LeaveJobDate = DateTime.Parse("Nov 22 2019"),
+                           LeaveJobReason = "Not getting enough vacation",
+                           LegalDayOff = "22"
+                       });
+
+                  Employees.Add(13,
+                       new Employee
+                       {
+                           EmployeeId = 13,
+                            //  UserId = "003",
+                            Firstname = "Baennie",
+                           Lastname = "Sanders",
+                           Phone = "+2348062553445",
+                           Email = "sammy13@samuel-ak.tech",
+                           HomeAddress = "7, Sesame street NYC",
+                           Department = Dept.Payroll,
+                           City = "Budapest",
+                           Country = "Romania",
+                           JobTitle = "Software Developer",
+                           Rank = "Project Lead",
+                           BloodType = "B+",
+                           MaritalStatus = "Single",
+                           DateOfBirth = DateTime.Parse("Jan 26 1987"),
+                           Gender = "Female",
+                           PhotoPath = "~/images/noimage.jpg",
+                           Nationality = "British",
+                           HousePhone = "+2349088844433",
+                           ContractType = "ShortTerm",
+                           JobLocation = "Britain",
+                           IsConfirmed = true,
+                           CreateDate = DateTime.Parse("Feb 20 2018"),
+                           LastModifiedBy = "Lennon Lewwis",
+                           CreatedBy = "Sammy Arthur",
+                           StartDate = DateTime.Parse("Mar 23 2012"),
+                           QuitDate = DateTime.Parse("Sep 23 2014"),
+                           IsLeavedJob = false,
+                           LeaveJobDate = DateTime.Parse("Nov 22 2019"),
+                           LeaveJobReason = "Not getting enough vacation",
+                           LegalDayOff = "22"
+                       });
+            foreach (var employee in Employees.Values)
                 {
                     context.Employees.Add(employee);
                 }
