@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlloeHRMSystem.Domain", "Al
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{9D65A5A8-B261-4FEC-B57C-FEC48C1CD58A}"
 	ProjectSection(SolutionItems) = preProject
-		AlloeHRMSystem.UI\.dockerignore = AlloeHRMSystem.UI\.dockerignore
+		.dockerignore = .dockerignore
 		..\..\Users\WeirdCoder\Documents\AlloeReadMe.txt = ..\..\Users\WeirdCoder\Documents\AlloeReadMe.txt
 		AlloeHRMSystem.UI\Dockerfile = AlloeHRMSystem.UI\Dockerfile
 	EndProjectSection
@@ -32,7 +32,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlloeHRMSystem.Domain.Tests
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlloeHRMSystem.UI", "AlloeHRMSystem.UI\AlloeHRMSystem.UI.csproj", "{C77EE411-3E64-4C15-8559-42BB03D3E6FB}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{8F2C8239-B803-4B4D-87BF-6B4C89D4CAAB}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9DA17213-AEAC-4FF1-BD18-72F9621E9738}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,8 +40,8 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{23959307-5038-45C9-91DA-93008AA01860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23959307-5038-45C9-91DA-93008AA01860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23959307-5038-45C9-91DA-93008AA01860}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{23959307-5038-45C9-91DA-93008AA01860}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{23959307-5038-45C9-91DA-93008AA01860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23959307-5038-45C9-91DA-93008AA01860}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6586E637-D058-4D98-A42E-208B8DC10A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -64,10 +64,10 @@ Global
 		{C77EE411-3E64-4C15-8559-42BB03D3E6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C77EE411-3E64-4C15-8559-42BB03D3E6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C77EE411-3E64-4C15-8559-42BB03D3E6FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F2C8239-B803-4B4D-87BF-6B4C89D4CAAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F2C8239-B803-4B4D-87BF-6B4C89D4CAAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F2C8239-B803-4B4D-87BF-6B4C89D4CAAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F2C8239-B803-4B4D-87BF-6B4C89D4CAAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DA17213-AEAC-4FF1-BD18-72F9621E9738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DA17213-AEAC-4FF1-BD18-72F9621E9738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DA17213-AEAC-4FF1-BD18-72F9621E9738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DA17213-AEAC-4FF1-BD18-72F9621E9738}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

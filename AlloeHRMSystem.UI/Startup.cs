@@ -36,9 +36,16 @@ namespace AlloeHRMSystem.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var server = Configuration["DBServer"] ?? "codenclouddb";
+            var port = Configuration["DBPort"] ?? "1443";
+            var user = Configuration["DBUser"] ?? "sa";
+            var password = Configuration["DBPassword"] ?? "Sammyk_2601";
+            var database = Configuration["Database"] ?? "AlloeDB";
+
             services.AddDbContext<AlloeContext>(options =>
-               options.UseSqlServer(
-                   Configuration.GetConnectionString("AlloeDBConnection")));
+               options.UseSqlServer($"Server = { server}, {port}; Initial Catalog={database}; User Id={user}; Password={password}"
+                  // Configuration.GetConnectionString("AlloeDBConnection")
+                  ));
 
             services.AddIdentity<AppUser, AppRole>(options => {
                 options.User.RequireUniqueEmail = true;
@@ -154,6 +161,7 @@ namespace AlloeHRMSystem.UI
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                
             });
 
           //  AlloeHRMSystemInitializers.Initialize(context, userManager, roleManager);

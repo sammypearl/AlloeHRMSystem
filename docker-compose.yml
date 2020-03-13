@@ -1,8 +1,19 @@
 version: '3.4'
 
 services:
+  codenclouddb:
+     image: mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
+     environment:
+        ACCEPT_EULA: "Y"
+        SA_PASSWORD: "Sammyk_2601"
+        MSSQL_PID: Express
+     ports:
+          - "1433:1433"
+
   alloehrmsystem.ui:
-    image: ${DOCKER_REGISTRY-}alloehrmsystemui
+    image: ${DOCKER_REGISTRY-}alloehrmsystemuiv5
     build:
       context: .
       dockerfile: AlloeHRMSystem.UI/Dockerfile
+    ports:
+      - "8080:8080"

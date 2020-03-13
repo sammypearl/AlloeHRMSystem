@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using AlloeHRMSystem.Domain.IdentityEntities;
 using AlloeHRMSystem.Persistence;
@@ -30,8 +31,8 @@ namespace AlloeHRMSystem.UI
         //        });
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build();
-            var host = CreateWebHostBuilder(args).Build();
+           // CreateWebHostBuilder(args).Build();
+            var host = CreateHostBuilder(args).Build();
 
             using (var scope = host.Services.CreateScope())
             {
@@ -60,9 +61,17 @@ namespace AlloeHRMSystem.UI
             host.Run();
         }
 
-            public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            public static IWebHostBuilder CreateHostBuilder(string[] args) =>
              new WebHostBuilder()
-              .UseKestrel()
+              .UseKestrel(options =>
+              {
+                  options.Listen(IPAddress.Loopback, 5000);  // http:localhost:5000
+                  options.Listen(IPAddress.Any, 80);         // http:*:80
+                  options.Listen(IPAddress.Loopback, 443, listenOptions =>
+                  {
+                      listenOptions.UseHttps("certificate.pfx", "password");
+                  });
+              })
               .UseContentRoot(Directory.GetCurrentDirectory())
               .ConfigureAppConfiguration((hostingContext, config) =>
               {
